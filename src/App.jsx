@@ -372,4 +372,196 @@ export default function VortekAI() {
 
       {/* Casos */}
       <section id="casos" className="py-24">
-        <div className=
+        <div className="max-w-7xl mx-auto px-4">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest text-center mb-3">Resultados reales</p>
+            <h2 className="text-4xl font-black text-center mb-3">Casos de uso</h2>
+            <p className="text-slate-400 text-center max-w-xl mx-auto mb-16">Proyectos que transformaron operaciones reales.</p>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-4">
+            {cases.map((c,i)=>{ const I=c.icon; return (
+              <Card key={i} delay={i*80}>
+                <div style={{ background: "rgba(34,211,238,0.08)", borderRadius: 8 }} className="w-10 h-10 flex items-center justify-center mb-5"><I style={{ color: C.primary }} size={20} /></div>
+                <h3 className="font-bold text-white mb-3">{c.t}</h3>
+                <p className="text-slate-400 text-sm mb-5 leading-relaxed">{c.d}</p>
+                <div className="space-y-2">{c.r.map((x,j)=><div key={j} className="flex items-start gap-2 text-sm"><CheckCircle className="text-green-500 flex-shrink-0 mt-0.5" size={13} /><span className="text-slate-300">{x}</span></div>)}</div>
+              </Card>
+            );})}
+          </div>
+        </div>
+      </section>
+
+      {/* ROI */}
+      <section id="roi" style={{ background: "rgba(34,211,238,0.02)", borderTop: `1px solid ${C.primaryLine}`, borderBottom: `1px solid ${C.primaryLine}` }} className="py-24">
+        <div className="max-w-7xl mx-auto px-4">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest text-center mb-3">¿Cuánto puedes ahorrar?</p>
+            <h2 className="text-4xl font-black text-center mb-3">Calculadora de ROI</h2>
+            <p className="text-slate-400 text-center max-w-xl mx-auto mb-16">Mueve los sliders y ve el impacto real en tu empresa.</p>
+          </Reveal>
+          <ROICalc />
+        </div>
+      </section>
+
+      {/* Industrias */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest text-center mb-3">Tu sector</p>
+            <h2 className="text-4xl font-black text-center mb-3">Industrias</h2>
+            <p className="text-slate-400 text-center max-w-xl mx-auto mb-16">Experiencia real en sectores con alta demanda de automatización.</p>
+          </Reveal>
+          <div className="grid grid-cols-4 gap-3">
+            {industries.map(([e,n],i)=>(
+              <Reveal key={i} delay={i*50}>
+                <div style={{ background: C.bgCard, borderColor: "#1e293b" }} className="border rounded-xl p-5 text-center hover:border-cyan-500/30 transition-colors">
+                  <div className="text-3xl mb-2">{e}</div>
+                  <p className="text-xs text-slate-300 font-semibold">{n}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Metodología */}
+      <section style={{ background: "rgba(34,211,238,0.02)", borderTop: `1px solid ${C.primaryLine}`, borderBottom: `1px solid ${C.primaryLine}` }} className="py-24">
+        <div className="max-w-6xl mx-auto px-4">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest text-center mb-3">Proceso</p>
+            <h2 className="text-4xl font-black text-center mb-16">Cómo trabajamos</h2>
+          </Reveal>
+          <div className="relative grid md:grid-cols-4 gap-8">
+            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px" style={{ background: `linear-gradient(to right, transparent, ${C.primary}, transparent)` }}></div>
+            {steps.map((s,i)=>(
+              <Reveal key={i} delay={i*100}>
+                <div className="text-center">
+                  <div style={{ background: "rgba(34,211,238,0.08)", border: `1px solid ${C.primaryLine}` }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <span style={{ color: C.primary }} className="text-lg font-black">{s.n}</span>
+                  </div>
+                  <h3 className="font-bold text-white mb-2">{s.t}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{s.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seguridad */}
+      <section className="py-20">
+        <div className="max-w-3xl mx-auto px-4">
+          <Reveal>
+            <div style={{ background: "rgba(34,211,238,0.04)", border: `1px solid ${C.primaryLine}`, borderRadius: 16 }} className="p-10 text-center">
+              <Lock style={{ color: C.primary }} className="mx-auto mb-4" size={36} />
+              <h2 className="text-2xl font-black mb-3">Tus datos, bajo tu control</h2>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">Encriptación E2E, NDA en cada proyecto, datos en tus servidores. Tu información nunca se comparte ni se usa para entrenar modelos públicos.</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {['Encriptación E2E','NDA incluido','Datos en tus servidores','Auditorías disponibles'].map((x,i)=>(
+                  <span key={i} style={{ background: "rgba(34,211,238,0.08)", borderColor: C.primaryLine, color: "#67e8f9" }} className="px-3 py-1 border rounded-full text-xs font-medium">{x}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section id="testimonios" style={{ background: "rgba(34,211,238,0.02)", borderTop: `1px solid ${C.primaryLine}`, borderBottom: `1px solid ${C.primaryLine}` }} className="py-24">
+        <div className="max-w-7xl mx-auto px-4">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest text-center mb-3">Lo que dicen</p>
+            <h2 className="text-4xl font-black text-center mb-16">Clientes</h2>
+          </Reveal>
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-24">
+        <div className="max-w-7xl mx-auto px-4">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest text-center mb-3">Dudas frecuentes</p>
+            <h2 className="text-4xl font-black text-center mb-16">FAQ</h2>
+          </Reveal>
+          <FAQ />
+        </div>
+      </section>
+
+      {/* Contacto */}
+      <section id="contacto" style={{ background: `linear-gradient(to bottom, rgba(34,211,238,0.03), ${C.bg})`, borderTop: `1px solid ${C.primaryLine}` }} className="py-24">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <Reveal>
+            <p style={{ color: C.primary }} className="text-xs font-bold uppercase tracking-widest mb-3">Sin compromiso</p>
+            <h2 className="text-4xl font-black mb-4">Diagnóstico gratuito</h2>
+            <p className="text-slate-400 mb-12 max-w-xl mx-auto text-sm leading-relaxed">En 30 minutos te mostramos exactamente qué procesos automatizar y cuánto ahorrarías. Sin tecnicismos.</p>
+          </Reveal>
+          <Reveal delay={150}>
+            {done ? (
+              <div style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 16 }} className="p-10 max-w-md mx-auto">
+                <CheckCircle className="text-green-400 mx-auto mb-4" size={48} />
+                <h3 className="text-xl font-black text-green-400 mb-2">¡Listo!</h3>
+                <p className="text-slate-300 text-sm">Te contactamos en menos de 24 horas.</p>
+              </div>
+            ) : (
+              <div style={{ background: C.bgCard, borderColor: C.primaryLine }} className="border rounded-xl p-8 max-w-md mx-auto text-left space-y-4">
+                {[['name','text','Nombre completo'],['email','email','Email'],['phone','tel','Teléfono / WhatsApp']].map(([k,t,ph])=>(
+                  <div key={k}>
+                    <input type={t} placeholder={ph} value={form[k]} onChange={e=>chg(k,e.target.value)}
+                      style={{ background: C.bg, borderColor: errors[k] ? "#ef4444" : "#1e293b", color: "white" }}
+                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none placeholder-slate-600"
+                      onFocus={e => e.target.style.borderColor = C.primary}
+                      onBlur={e => e.target.style.borderColor = errors[k] ? "#ef4444" : "#1e293b"} />
+                    {errors[k] && <p className="text-red-400 text-xs mt-1">{errors[k]}</p>}
+                  </div>
+                ))}
+                <div>
+                  <textarea placeholder="¿Qué proceso quieres automatizar?" rows="4" value={form.message} onChange={e=>chg("message",e.target.value)}
+                    style={{ background: C.bg, borderColor: errors.message ? "#ef4444" : "#1e293b", color: "white" }}
+                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none resize-none placeholder-slate-600"
+                    onFocus={e => e.target.style.borderColor = C.primary}
+                    onBlur={e => e.target.style.borderColor = errors.message ? "#ef4444" : "#1e293b"} />
+                  {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+                </div>
+                <div>
+                  <button onClick={() => setCaptcha(!captcha)} style={{ background: C.bg, borderColor: captcha ? "#22c55e" : "#1e293b" }} className="w-full p-3 border rounded-lg flex items-center gap-3 text-sm transition-colors">
+                    <div style={{ background: captcha ? "#22c55e" : "transparent", borderColor: captcha ? "#22c55e" : "#475569", borderWidth: 2 }} className="w-5 h-5 rounded flex-shrink-0 flex items-center justify-center border">
+                      {captcha && <CheckCircle size={13} className="text-white" />}
+                    </div>
+                    <span className="text-slate-300">No soy un robot</span>
+                  </button>
+                  {errors.captcha && <p className="text-red-400 text-xs mt-1">{errors.captcha}</p>}
+                </div>
+                <button onClick={submit} disabled={sending} style={{ background: sending ? "#1e293b" : C.primary, color: sending ? "#94a3b8" : "#020817" }} className="w-full py-3 rounded-lg font-black text-sm inline-flex items-center justify-center gap-2 transition-all hover:opacity-90">
+                  {sending ? <><div style={{ borderColor: "rgba(148,163,184,0.3)", borderTopColor: "#94a3b8" }} className="w-4 h-4 border-2 rounded-full animate-spin"></div>Enviando...</> : <>Solicitar diagnóstico <ArrowRight size={16} /></>}
+                </button>
+              </div>
+            )}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ borderTop: `1px solid ${C.primaryLine}`, background: C.bg }} className="py-12">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div className="text-xl font-black mb-2"><span style={{ color: C.primary }}>VOR</span>TEK AI</div>
+            <p className="text-slate-600 text-sm">Inteligencia Artificial y Automatización empresarial. Global en español.</p>
+          </div>
+          <div>
+            <p className="font-bold text-xs uppercase tracking-widest text-slate-500 mb-4">Navegación</p>
+            <div className="space-y-2">
+              {navLinks.map(([id,label])=><button key={id} onClick={()=>go(id)} className="block text-slate-500 hover:text-white text-sm transition-colors">{label}</button>)}
+            </div>
+          </div>
+          <div>
+            <p className="font-bold text-xs uppercase tracking-widest text-slate-500 mb-4">Contacto</p>
+            <a href="tel:+573212257107" className="block text-slate-500 hover:text-white text-sm mb-1 transition-colors">📞 321 225 7107</a>
+            <a href="https://wa.me/573212257107" className="block text-slate-500 hover:text-green-400 text-sm transition-colors">💬 WhatsApp</a>
+          </div>
+        </div>
+        <div style={{ borderTop: `1px solid #0f172a` }} className="pt-6 text-center text-slate-700 text-xs">© 2025 VORTEK AI. Todos los derechos reservados.</div>
+      </footer>
+    </div>
+  );
+}
